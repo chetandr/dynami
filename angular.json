@@ -3,5 +3,239 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "dynamiAdmin": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/dynami-admin",
+      "sourceRoot": "projects/dynami-admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dynamiAdmin",
+            "index": "projects/dynami-admin/src/index.html",
+            "main": "projects/dynami-admin/src/main.ts",
+            "polyfills": "projects/dynami-admin/src/polyfills.ts",
+            "tsConfig": "projects/dynami-admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/dynami-admin/src/favicon.ico",
+              "projects/dynami-admin/src/assets"
+            ],
+            "styles": [
+              "projects/dynami-admin/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dynami-admin/src/environments/environment.ts",
+                  "with": "projects/dynami-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dynamiAdmin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dynamiAdmin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dynamiAdmin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynami-admin/src/test.ts",
+            "polyfills": "projects/dynami-admin/src/polyfills.ts",
+            "tsConfig": "projects/dynami-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/dynami-admin/karma.conf.js",
+            "assets": [
+              "projects/dynami-admin/src/favicon.ico",
+              "projects/dynami-admin/src/assets"
+            ],
+            "styles": [
+              "projects/dynami-admin/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dynami-admin/tsconfig.app.json",
+              "projects/dynami-admin/tsconfig.spec.json",
+              "projects/dynami-admin/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dynami-admin/e2e/protractor.conf.js",
+            "devServerTarget": "dynamiAdmin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dynamiAdmin:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "dynamiUserMFE": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/dynami-user-mfe",
+      "sourceRoot": "projects/dynami-user-mfe/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dynamiUserMFE",
+            "index": "projects/dynami-user-mfe/src/index.html",
+            "main": "projects/dynami-user-mfe/src/main.ts",
+            "polyfills": "projects/dynami-user-mfe/src/polyfills.ts",
+            "tsConfig": "projects/dynami-user-mfe/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/dynami-user-mfe/src/favicon.ico",
+              "projects/dynami-user-mfe/src/assets"
+            ],
+            "styles": [
+              "projects/dynami-user-mfe/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dynami-user-mfe/src/environments/environment.ts",
+                  "with": "projects/dynami-user-mfe/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dynamiUserMFE:build",
+            "port": 4202,
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dynamiUserMFE:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dynamiUserMFE:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynami-user-mfe/src/test.ts",
+            "polyfills": "projects/dynami-user-mfe/src/polyfills.ts",
+            "tsConfig": "projects/dynami-user-mfe/tsconfig.spec.json",
+            "karmaConfig": "projects/dynami-user-mfe/karma.conf.js",
+            "assets": [
+              "projects/dynami-user-mfe/src/favicon.ico",
+              "projects/dynami-user-mfe/src/assets"
+            ],
+            "styles": [
+              "projects/dynami-user-mfe/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dynami-user-mfe/tsconfig.app.json",
+              "projects/dynami-user-mfe/tsconfig.spec.json",
+              "projects/dynami-user-mfe/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dynami-user-mfe/e2e/protractor.conf.js",
+            "devServerTarget": "dynamiUserMFE:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dynamiUserMFE:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dynamiAdmin"
 }
